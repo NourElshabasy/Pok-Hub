@@ -1,0 +1,34 @@
+.footer {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  text-align: center;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerImg{
+    width: 100%;
+    height: 648px;
+    background-image: url("../assets/gen-footer.png");
+    background-position: center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.footer-line{
+    width: 280px;
+  border: none;
+  background-color: #d6d8db;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+

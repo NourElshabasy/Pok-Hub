@@ -1,0 +1,10 @@
+.featured-pokemon-container{
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 100px;
+}
+
+.daily-spotlight{
+    margin-bottom: 80px;
+
+}
