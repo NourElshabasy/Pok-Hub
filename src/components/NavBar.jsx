@@ -14,8 +14,11 @@ import newsFalse from "../assets/nav-icons/NewsIcon-0.png";
 import newsTrue from "../assets/nav-icons/NewsIcon-1.png";
 import aboutFalse from "../assets/nav-icons/AboutIcon-0.png";
 import aboutTrue from "../assets/nav-icons/AboutIcon-1.png";
+import forumFalse from "../assets/nav-icons/Forum-0.png";
+import forumTrue from "../assets/nav-icons/Forum-1.png";
 
-const NavBar = ({ isHome, isPokedex, isTeamBuilder, isNews, isAbout }) => {
+
+const NavBar = ({ isHome, isPokedex, isTeamBuilder, isForum, isNews}) => {
   useEffect(() => {
     const preloadImage = (src) => {
       const img = new Image();
@@ -32,6 +35,8 @@ const NavBar = ({ isHome, isPokedex, isTeamBuilder, isNews, isAbout }) => {
     preloadImage(newsTrue);
     preloadImage(aboutFalse);
     preloadImage(aboutTrue);
+    preloadImage(forumFalse);
+    preloadImage(forumTrue);
   }, []);
 
   const [scrolled, setScrolled] = useState(false);
@@ -83,6 +88,16 @@ const NavBar = ({ isHome, isPokedex, isTeamBuilder, isNews, isAbout }) => {
           TeamBuilder
         </div>
       </Link>
+      <Link to="/forum">
+        <div className={`page ${isForum ? "page-active" : ""}`}>
+          <img
+            src={isForum ? forumTrue : forumFalse}
+            alt="forumIcon"
+            width={"34px"}
+          />
+          Forum
+        </div>
+      </Link>
       <Link to="/news">
         <div className={`page ${isNews ? "page-active" : ""}`}>
           <img
@@ -91,16 +106,6 @@ const NavBar = ({ isHome, isPokedex, isTeamBuilder, isNews, isAbout }) => {
             width={"28px"}
           />
           News
-        </div>
-      </Link>
-      <Link to="/about">
-        <div className={`page ${isAbout ? "page-active" : ""}`}>
-          <img
-            src={isAbout ? aboutTrue : aboutFalse}
-            alt="pokedexIcon"
-            width={"30px"}
-          />
-          About
         </div>
       </Link>
     </div>

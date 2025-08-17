@@ -11,6 +11,7 @@ const Pokemon = ({ pokemon, selected, setSelected }) => {
         src={pokemon.sprite_bw}
         alt={`${pokemon.name} sprite`}
         className="pkmn-img"
+        loading="lazy"
       />
       <div className="pkmn-number">
         N&deg;{pokemon.id.toString().padStart(4, "0")}

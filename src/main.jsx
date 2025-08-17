@@ -6,7 +6,8 @@ import App from "./App.jsx";
 import Pokedex from "./pages/Pokedex.jsx";
 import TeamBuilder from "./pages/TeamBuilder.jsx";
 import News from "./pages/News.jsx";
-import About from "./pages/About.jsx";
+import Forum from "./pages/Forum.jsx";
+import NoMatch from "./pages/NoMatch.jsx";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router";
@@ -33,7 +34,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="/pokedex/:id" element={<Pokedex />} />
         <Route path="/team-builder" element={<TeamBuilder />} />
         <Route path="/news" element={<News />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/forum" element={<Forum />} />
+        <Route path="*" element={<NoMatch />} />
+        <Route path="/pokedex/*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

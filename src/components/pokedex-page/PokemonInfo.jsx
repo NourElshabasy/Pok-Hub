@@ -78,13 +78,13 @@ function calculateWeaknessesArray(types, chart) {
 
 const PokemonInfo = ({ selected, setSelected }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (selected?.id) {
-      navigate(`/pokedex/${selected.id}`, { replace: true });
+      window.history.replaceState({}, "", `/pokedex/${selected.id}`);
     }
-  }, [selected, navigate]);
+  }, [selected]);
+
   useEffect(() => {
     if (id) {
       setSelected(pokemonData[id - 1]); // Could fetch the Pokémon here
@@ -341,7 +341,7 @@ const PokemonInfo = ({ selected, setSelected }) => {
             <img
               src={pokemonData[prevIndex].sprite_bw}
               alt={pokemonData[prevIndex].name}
-              width="15%"
+              height="20px"
               className="prev"
             />
             <p className="mID">
@@ -359,7 +359,7 @@ const PokemonInfo = ({ selected, setSelected }) => {
             <img
               src={pokemonData[nextIndex].sprite_bw}
               alt={pokemonData[nextIndex].name}
-              width="15%"
+              height="20px"
               className="next"
             />
             &rarr;

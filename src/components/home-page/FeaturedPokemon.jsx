@@ -15,9 +15,9 @@ function mulberry32(seed) {
 }
 
 const FeaturedPokemon = () => {
-  // Get a date-based seed in format YYYYMMDD as number
+  // Get a local date-based seed in format YYYYMMDD as number
   const todaySeed = Number(
-    new Date().toISOString().slice(0, 10).replace(/-/g, "")
+    new Date().toLocaleDateString("en-CA").replace(/-/g, "")
   );
 
   // Generate 5 unique indices based on seed
@@ -40,7 +40,7 @@ const FeaturedPokemon = () => {
   const dailyPokemons = getDailyRandomPokemons(pokemonData, 5);
 
   return (
-    <div >
+    <div>
       <h2 className="daily-spotlight">PokéHub Daily Spotlight</h2>
       <div className="featured-pokemon-container">
         {dailyPokemons.map((pokemon) => (

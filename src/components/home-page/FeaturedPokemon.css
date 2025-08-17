@@ -1,6 +1,7 @@
 .featured-pokemon-container{
   display: flex;
-  column-gap: 20px;
+  width: 1230px;
+  justify-content: space-between;
   margin-bottom: 100px;
 }
 

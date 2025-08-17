@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import "./App.css";
 import beach from "./assets/beachPKMN.gif";
@@ -15,6 +16,55 @@ import megaGyra from "./assets/megaGyra.png";
 import megaLucario from "./assets/megaLucario.png";
 
 function App() {
+  useEffect(() => {
+    const preloadImage = (src) => {
+      const img = new Image();
+      img.src = src;
+    };
+
+    preloadImage(beach);
+    preloadImage(megaCharizardX);
+    preloadImage(megaGyra);
+    preloadImage(megaLucario);
+  }, []);
+  useEffect(() => {
+    const handleLoad = () => {
+      const features = document.querySelectorAll(".feature");
+
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      features.forEach((feature) => {
+        feature.classList.remove("show");
+        observer.observe(feature);
+
+        // handle features already in view
+        const rect = feature.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          feature.classList.add("show");
+        }
+      });
+    };
+
+    // Run after all images are loaded, or after a small delay if images are already cached
+    if (document.readyState === "complete") {
+      setTimeout(handleLoad, 100); // slight delay for smoother effect
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
   return (
     <>
       <NavBar isHome={true} />
@@ -51,11 +101,11 @@ function App() {
               discover new Pokémon and track your Pokédex progress in real time.
             </p>
           </div>
-          <img src={megaCharizardX} alt="" height={400} />
+          <img src={megaCharizardX} alt="" className="feature-img"/>
         </div>
         <hr className="line" />
         <div className="feature">
-          <img src={megaGyra} alt="" height={400} />
+          <img src={megaGyra} alt="" className="feature-img"/>
           <div className="feature-text-right">
             <h1>Smooth Navigation</h1>
             <p>
@@ -79,7 +129,7 @@ function App() {
               like home.
             </p>
           </div>
-          <img src={megaLucario} alt="" height={400} />
+          <img src={megaLucario} alt="" className="feature-img"/>
         </div>
       </div>
       <hr className="line" />

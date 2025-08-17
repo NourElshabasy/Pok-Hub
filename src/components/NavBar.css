@@ -17,21 +17,16 @@
     padding-left: 35px;
     padding-right: 35px;
     
-
     box-shadow: 0px 10px 10px rgba(158, 158, 158, 0.4);
 }
-
 .nav-bar.transparent {
   background-color: #ffffff81;
   transition: background-color .5s ease;
 }
-
 .nav-bar.solid {
   background-color: #ffffff;
   transition: background-color .5s ease;
 }
-
-
 
 .page{
     display: flex;
@@ -40,9 +35,61 @@
     gap: 10px;
     color: #7c7a78;
     height: 100px;
+    transition: all 0.25s ease;
 }
-
+.page:hover{
+    scale: 108%;
+}
+.page-active:hover{
+    scale: 100%;
+}
 .page-active{
     color: #ff5350;
     box-shadow: inset 0 -4px 0 0 #ff5350;
+}
+
+
+@media (max-width: 450px) {
+    .nav-bar{
+        width: 350px;
+        height: 50px;
+        left: 5px;
+        color: transparent;
+        font-size: 0;
+    }
+    .page{
+        height: 50px;
+    }
+    .home-title{
+        font-size: 12px;
+    }
+    .feature{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .home-main{
+        bottom: 78vh;
+    }
+    .feature{
+        width: 330px;
+    }
+    .feature-text-right{
+        width: 300px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .feature-text-left{
+        width: 300px;
+        text-align: center;
+        font-size: 12px;
+    }
+    .feature-img{
+        height: 300px;
+    }
+    .featured-pokemon-container{
+        flex-direction: column;
+        gap: 100px;
+        align-items: center;
+    }
 }

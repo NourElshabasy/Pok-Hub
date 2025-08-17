@@ -10,7 +10,7 @@
   background-image: url('./assets/pkmn-bg.png');
   background-size: auto;
   background-repeat: no-repeat;
-  background-position: fixed;
+  background-attachment: fixed;
   
 
   font-synthesis: none;
